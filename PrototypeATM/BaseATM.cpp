@@ -1,15 +1,12 @@
 //BasicATM: can only withdraw cash and verify pin
 
-//b) It should only know the current account balance and information whether the ATM is blocked.
-//d) After withdrawing cash, the account balance must be updated, and the ATM must be blocked again.
-//e) You cannot withdraw more than PLN 1,500 from a basic ATM.
-
 #include "BaseATM.h"
 
 unsigned int BaseATM::CorrectlyPin = 9876;
 unsigned int BaseATM::AccountBalance = 10000;
 
 BaseATM::BaseATM(void){
+	MaxValueWithdrawal = 1500; //is not possible to withdraw more than 1,500
 }
 
 BaseATM::~BaseATM(void){
@@ -35,7 +32,7 @@ bool BaseATM::shouldWithdrawCashWhenCorrectlyEnteredThePin(unsigned int ValueCas
 			return false;
 		}
 		else {
-			locked = true;
+			locked = true; //ATM must be blocked again after withdrawing cash
 			AccountBalance -= ValueCash; //should update the account balance after withdrawing cash
 			return true;
 
