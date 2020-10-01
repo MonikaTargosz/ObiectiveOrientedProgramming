@@ -20,3 +20,13 @@ bool CDM::shouldDepositCash(unsigned int ValueCash) {
 		return true;
 	}
 }
+
+std::string CDM::shouldDisplayServiceInfo(){
+	std::string infoATM = "\n Type: CDM\n";
+	infoATM += "* Locked: \t" + (std::string)(locked ? "yes" : "no") + "\n";
+	infoATM += "* Maximum value of withdrawal: \t" + std::to_string(MaxValueWithdrawal) + "\n";
+	infoATM += "* Accountant balance: \t" + std::to_string(AccountBalance) + "\n\n";
+	infoATM += "* Accountant balance: \tyes""\n";
+	infoATM += "* Deposit: \tyes""\n\n";
+	return infoATM;
+}

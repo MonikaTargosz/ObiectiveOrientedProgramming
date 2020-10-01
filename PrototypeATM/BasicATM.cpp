@@ -28,7 +28,7 @@ bool BasicATM::shouldWithdrawCashWhenCorrectlyEnteredThePin(unsigned int ValueCa
 		return false;
 	else {
 		if (ValueCash > MaxValueWithdrawal || ValueCash > AccountBalance) {
-			locked == true;
+			locked = true;
 			return false;
 		}
 		else {
@@ -38,4 +38,12 @@ bool BasicATM::shouldWithdrawCashWhenCorrectlyEnteredThePin(unsigned int ValueCa
 
 		}
 	}
+}
+
+std::string BasicATM::shouldDisplayServiceInfo(){
+	std::string infoATM = "\n Type: Basic ATM\n";
+	infoATM += "* Locked: \t" + (std::string)(locked ? "yes" : "no") + "\n";
+	infoATM += "* Maximum value of withdrawal: \t" + std::to_string(MaxValueWithdrawal) + "\n";
+	infoATM += "* Accountant balance: \t" + std::to_string(AccountBalance) + "\n\n";
+	return infoATM;
 }

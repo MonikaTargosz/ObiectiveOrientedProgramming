@@ -1,4 +1,5 @@
 #pragma once
+#include <string>
 
 class BasicATM
 {
@@ -11,8 +12,7 @@ protected:
 public:
 	BasicATM(void);
 	~BasicATM(void);
-
 	bool shouldVerifyPin(unsigned int TypedPin);
 	bool shouldWithdrawCashWhenCorrectlyEnteredThePin(unsigned int ValueCash);
-
+	virtual std::string shouldDisplayServiceInfo();
 };

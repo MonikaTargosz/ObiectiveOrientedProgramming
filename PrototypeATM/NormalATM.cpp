@@ -2,15 +2,15 @@
 
 #include "pch.h"
 #include "NormalATM.h"
+#include<string.h>
 
 
-NormalATM::NormalATM(){
+NormalATM::NormalATM(void):BasicATM(){
 	MaxValueWithdrawal = 10000; //protected field - limit
 }
 
 
-NormalATM::~NormalATM()
-{
+NormalATM::~NormalATM(void){
 }
 
 unsigned int NormalATM::shouldPrintAccountBalanse() {
@@ -20,4 +20,12 @@ unsigned int NormalATM::shouldPrintAccountBalanse() {
 		locked = true;
 		return AccountBalance; //has the ability to display the account status
 	}
+}
+
+std::string NormalATM::shouldDisplayServiceInfo(){
+	std::string infoATM = "\n Type: Normal ATM\n";
+	infoATM += "* Locked: \t" + (std::string)(locked ? "yes" : "no") + "\n";
+	infoATM += "* Maximum value of withdrawal: \t" + std::to_string(MaxValueWithdrawal) + "\n";
+	infoATM += "* Accountant balance: \t" + std::to_string(AccountBalance) + "\n\n";
+	return infoATM;
 }

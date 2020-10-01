@@ -10,8 +10,7 @@
 
 using namespace std;
 
-int main()
-{
+int main(){
 	BasicATM *basicATM = new BasicATM;
 
 	cout << "Basic ATM:\nCorrectly pin and unlock ATM (9987): " << (basicATM->shouldVerifyPin(9987) ? "yes" : "no") << endl;
@@ -31,20 +30,35 @@ int main()
 
 	CDM *cdm = new CDM;
 
-	cout << "CDM\nCorrectly pin and unlock ATM (9876): " << (cdm->shouldVerifyPin(1234) ? "yes" : "no") << endl;
+	cout << "CDM\nCorrectly pin and unlock ATM (9876): " << (cdm->shouldVerifyPin(9876) ? "yes" : "no") << endl;
 	cout << "Accountant balance: " << cdm->shouldPrintAccountBalanse() << endl;
 	cdm->shouldVerifyPin(9876); // ATM was blocked by a successful operation
 	cout << "Deposit (50): " << (cdm->shouldDepositCash(50) ? "yes" : "no") << endl;
 	cdm->shouldVerifyPin(9876);
-	cout << "Accountant balance: " << cdm->shouldPrintAccountBalanse << endl << endl;
+	cout << "Accountant balance: " << cdm->shouldPrintAccountBalanse() << endl << endl;
 
 
 	RFIDATM *RfidATM = new RFIDATM;
 
 	cout << "RFID ATM\nWithdraw: " << (RfidATM->RFID() ? "yes" : "no") << endl;
-	cout << "odblokowanie pin (1234) : " << (RfidATM->shouldVerifyPin(9876) ? "yes" : "no") << endl;
-	cout << "stan konta: " << RfidATM->shouldPrintAccountBalanse() << endl;
-	cout << "odblokowanie pin (1234) : " << (RfidATM->shouldVerifyPin(9876) ? "yes" : "no") << endl << endl;// ATM is unblocked
+	cout << "Correctly pin and unlock ATM (9876): " << (RfidATM->shouldVerifyPin(9876) ? "yes" : "no") << endl;
+	cout << "Accountant balance: " << RfidATM->shouldPrintAccountBalanse() << endl;
+	cout << "Correctly pin and unlock ATM (9876): " << (RfidATM->shouldVerifyPin(9876) ? "yes" : "no") << endl << endl;// ATM is unblocked
+
+	BasicATM *ATMs[4];
+	ATMs[0] = basicATM;
+	ATMs[1] = normalATM;
+	ATMs[2] = cdm;
+	ATMs[3] = RfidATM;
+
+	cout << "*** [Service Info] ***\n";
+	for (int i = 0; i < 4; i++){
+		cout << ATMs[i]->shouldDisplayServiceInfo();
+		delete ATMs[i];
+	}
+
+	system("pause");
+	return 0;
 }
 
 

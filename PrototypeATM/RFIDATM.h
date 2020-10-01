@@ -7,6 +7,6 @@ public:
 	RFIDATM();
 	~RFIDATM();
 	bool RFID();
-
+	virtual std::string shouldDisplayServiceInfo();
 };
 

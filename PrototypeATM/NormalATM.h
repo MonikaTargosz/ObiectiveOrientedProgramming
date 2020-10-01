@@ -3,9 +3,9 @@
 class NormalATM :
 	public BasicATM{
 public:
-	NormalATM();
-	~NormalATM();
-
+	NormalATM(void);
+	~NormalATM(void);
 	unsigned int shouldPrintAccountBalanse();
+	virtual std::string shouldDisplayServiceInfo();
 };
 

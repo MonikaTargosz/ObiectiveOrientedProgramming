@@ -7,5 +7,6 @@ public:
 	CDM(void);
 	~CDM(void);
 	bool shouldDepositCash(unsigned int ValueCash);
+	virtual std::string shouldDisplayServiceInfo();
 };
 
