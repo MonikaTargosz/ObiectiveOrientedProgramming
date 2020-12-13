@@ -18,8 +18,18 @@ Wybór metody wywołania może odbywać się podczas kompilacji kodu lub działa
 
 # Kontrukcja i destrukcja obiektów
 
+Konstrukcja obiektu to tworzenie obiektu. W procesie tym wywołuje się metodę klasy zwaną konstruktorem, który inicjuje stan obiektu, co zazwyczaj wymaga wywołania (jawnie lub niejawnie) konstruktorów klas nadrzędnych, aby te zainicjowały swoją część stanu obiektu.
+
+Destrukcja obiektu to jego niszczenie. W procesie tym wywołuje się metodę klasy zwaną destruktorem, której zadaniem jest skasowanie stanu obiektu. Destruktory są wywoływane automatycznie, gdy obiekt wychodzi poza zakres dostępności lub w wyniku użycia operatora delete służącego do usuwania dynamicznie utworzonych obiektów - ważne jest zapamiętywanie obiektów, aby uniknąć wycieku pamięci.
+
 # Interfejsy i klasy abstrakcyjne
+
+Interfejs zawiera deklaracje zestawu powiązanych metod, poza jakąkolwiek klasą.
+
+Klasa abstrakcyjna to niekompletna definicja klasy, zawierająca deklaracje wszystkich metod, ale nie zawierająca wszystkich definicji.
 
 # Metody wirtualne
 
-# Wielodziedziczenia
+Klasy potomne mogą (przesłaniać) przedefiniowywać metody zdefinowane w klasach nadrzędnych. Jeśli metoda jest wirtualna, definicja metody do wywołania jest określana w czasie działania programu na podstawie typu (klasy) obiektu, na którym została wywołana.
+
+# Wielodziedziczenie
